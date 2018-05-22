@@ -38,6 +38,18 @@ const typeDefs = `
     url: String!
     viewerHasStarred: Boolean!
   }
+
+  type Mutation {
+    addStar(input: AddStarInput!): AddStarPayload!
+  }
+
+  input AddStarInput {
+    starrableId: ID!
+  }
+
+  type AddStarPayload {
+    starrable: Starrable!
+  }
 `;
 
 const resolvers = ...
