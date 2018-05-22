@@ -84,6 +84,14 @@ const resolvers = {
       },
     }),
   },
+  Mutation: {
+    addStar: (parent, { input }) => ({
+      starrable: {
+        id: input.starrableId,
+        viewerHasStarred: true,
+      },
+    }),
+  },
 };
 
 const executableSchema = makeExecutableSchema({
