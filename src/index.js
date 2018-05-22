@@ -4,12 +4,25 @@ import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { SchemaLink } from 'apollo-link-schema';
+import { makeExecutableSchema } from 'graphql-tools';
 
 import App from './App';
 
 import registerServiceWorker from './registerServiceWorker';
 
 const cache = new InMemoryCache();
+
+const typeDefs = //...
+
+const resolvers = //...
+
+const executableSchema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
+
+const link = new SchemaLink({ schema: executableSchema });
 
 const GITHUB_BASE_URL = 'https://api.github.com/graphql';
 
@@ -18,7 +31,7 @@ const httpLink = new HttpLink({
   headers: {
     authorization: `Bearer ${
       process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
-    }`,
+      }`,
   },
 });
 
