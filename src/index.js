@@ -92,6 +92,10 @@ const resolvers = {
       },
     }),
   },
+  Starrable: {
+    __resolveType: () => 'Repository',
+  },
+
 };
 
 const executableSchema = makeExecutableSchema({
