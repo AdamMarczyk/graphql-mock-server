@@ -18,6 +18,11 @@ const typeDefs = `
     organization(login: String!): Organization!
   }
 
+  interface Starrable {
+    id: ID!
+    viewerHasStarred: Boolean!
+  }
+
   type Organization {
     name: String!
     url: String!
@@ -32,7 +37,7 @@ const typeDefs = `
     node: Repository!
   }
 
-  type Repository {
+  type Repository implements Starrable {
     id: ID!
     name: String!
     url: String!
