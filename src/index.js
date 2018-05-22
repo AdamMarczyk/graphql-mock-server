@@ -17,6 +17,27 @@ const typeDefs = `
   type Query {
     organization(login: String!): Organization!
   }
+
+  type Organization {
+    name: String!
+    url: String!
+    repositories: RepositoryConnection!
+  }
+
+  type RepositoryConnection {
+    edges: [RepositoryEdge!]!
+  }
+
+  type RepositoryEdge {
+    node: Repository!
+  }
+
+  type Repository {
+    id: ID!
+    name: String!
+    url: String!
+    viewerHasStarred: Boolean!
+  }
 `;
 
 const resolvers = ...
