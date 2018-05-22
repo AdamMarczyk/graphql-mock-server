@@ -13,9 +13,13 @@ import registerServiceWorker from './registerServiceWorker';
 
 const cache = new InMemoryCache();
 
-const typeDefs = //...
+const typeDefs = `
+  type Query {
+    organization(login: String!): Organization!
+  }
+`;
 
-const resolvers = //...
+const resolvers = ...
 
 const executableSchema = makeExecutableSchema({
   typeDefs,
