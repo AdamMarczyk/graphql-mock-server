@@ -57,7 +57,34 @@ const typeDefs = `
   }
 `;
 
-const resolvers = ...
+const resolvers = {
+  Query: {
+    organization: (parent, { login }) => ({
+      name: login,
+      url: `https://github.com/${login}`,
+      repositories: {
+        edges: [
+          {
+            node: {
+              id: '1',
+              name: 'the-road-to-learn-react',
+              url: `https://github.com/${login}/the-road-to-learn-react`,
+              viewerHasStarred: false,
+            },
+          },
+          {
+            node: {
+              id: '2',
+              name: 'the-road-to-learn-react-chinese',
+              url: `https://github.com/${login}/the-road-to-learn-react-chinese`,
+              viewerHasStarred: false,
+            },
+          },
+        ],
+      },
+    }),
+  },
+};
 
 const executableSchema = makeExecutableSchema({
   typeDefs,
