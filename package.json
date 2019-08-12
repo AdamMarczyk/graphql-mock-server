@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "apollo-cache-inmemory": "^1.2.0",
+    "apollo-cache-inmemory": "^1.6.3",
     "apollo-client": "^2.3.0",
     "apollo-link-http": "^1.5.4",
     "apollo-link-schema": "^1.1.0",
